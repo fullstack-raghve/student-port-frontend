@@ -1,0 +1,35 @@
+<section class="wrapper">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4 mt-4">
+        <h1 class="text-center">Dasboard</h1>
+      </div>
+      <div class="col-6 mb-2 mb-2">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Add Students  <i class="bi bi-0-circle"></i></h5>
+            <a [routerLink]="'/add-student'" class="btn btn-primary">Add Students <i class="bi bi-0-circle"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-2 mb-2">
+        <div class="card" style="width: 18rem;" [routerLink]="'/add-student'">
+          <div class="card-body">
+            <h5 class="card-title">View Students</h5>
+            <a [routerLink]="'/view-student'" class="btn btn-primary">View Students</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-2">
+        <div class="card" style="width: 18rem;" (click)="teacherRoute()">
+          <div class="card-body">
+            <h5 class="card-title">Teachers</h5>
+            <a href="#" class="btn btn-primary">Add Teachers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

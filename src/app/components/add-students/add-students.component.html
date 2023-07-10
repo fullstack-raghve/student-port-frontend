@@ -1,0 +1,64 @@
+<header class="jumbotron" style="padding:2%;">
+  <h3 class="text-center">Angular Reactive From Validation</h3>
+</header>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit(registerForm.value)">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="Name" required [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors, 'is-valid': f.name.valid }">
+        <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Name is required!</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for="class">class:</label>
+        <input type="text" formControlName="class" id="class" class="form-control" placeholder="class" required [ngClass]="{ 'is-invalid': f.class.touched && f.class.errors, 'is-valid': f.class.valid }">
+        <div *ngIf="f.class.touched && f.class.errors" class="invalid-feedback">
+          <div *ngIf="f.class.errors.required">class is required!</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors, 'is-valid': f.email.valid }" formControlName="email" id="email" class="form-control" placeholder="Email" required>
+        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required!</div>
+          <div *ngIf="f.email.errors.pattern">Enter Valid Email ID!</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for="phone">phone No:</label>
+        <input type="tel" maxlength="10" [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors, 'is-valid': f.phone.valid }" formControlName="phone" id="phone" class="form-control" placeholder="phone" required>
+        <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">phone is required!</div>
+          <div *ngIf="f.phone.errors.pattern">Numeric Only Accepted!</div>
+          <div *ngIf="f.phone.errors.maxlength">phone is not valid format!</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for="marks">marks</label>
+        <input  type="tel" [ngClass]="{ 'is-invalid': f.marks.touched && f.marks.errors, 'is-valid': f.marks.valid }" formControlName="marks" id="marks" class="form-control" placeholder="marks" required>
+        <div *ngIf="f.marks.touched && f.marks.errors" class="invalid-feedback">
+          <div *ngIf="f.marks.errors.required">marks is required!</div>
+          <div *ngIf="f.marks.errors.pattern">Numeric Only Accepted!</div>
+          <div *ngIf="f.marks.errors.maxlength">phone is not valid format!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary"> Register </button>
+    </div>
+  </div>
+  </form>
+</div>

@@ -1,0 +1,39 @@
+<header class="jumbotron" style="padding:2%;">
+  <h3 class="text-center">LOGIN</h3>
+</header>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit(loginForm.value)">
+    <div class="row mb-3">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors, 'is-valid': f.email.valid }" formControlName="email" id="email" class="form-control" placeholder="Email" required>
+          <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required!</div>
+            <div *ngIf="f.email.errors.pattern">Enter Valid Email ID!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="row mb-3">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" formControlName="password" id="password" class="form-control" placeholder="password" required [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors, 'is-valid': f.password.valid }">
+        <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">password is required!</div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary"> Login </button>
+    </div>
+  </div>
+  </form>
+</div>
